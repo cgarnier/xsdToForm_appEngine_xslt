@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="randonnee">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element ref="circuit"/>
+                <xs:element ref="description"/>
+                <xs:element ref="fiche_technique"/>
+                <xs:element ref="fiche_information"/>
+                <xs:element ref="images"/>
+            </xs:sequence>
+        </xs:complexType>    
+    </xs:element>
+    
+    <xs:element name="circuit">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element ref="titre"/>
+                <xs:element ref="situation"/>
+                <xs:element ref="resume"/>
+                <xs:element ref="introduction"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="titre" type="xs:string"/>
+    <xs:element name="situation" type="xs:string"/>
+    <xs:element name="resume" type="xs:string"/>
+    <xs:element name="introduction" type="xs:string"/>
+    
+    <xs:element name="description"> <!-- useless ? -->
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="etapes"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="etapes">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="etape"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="etape">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element ref="lieu"/>
+                <xs:element ref="texte"/>
+            </xs:sequence>
+            <xs:attribute name="numero" type="xs:integer" use="required"></xs:attribute>
+            <xs:attribute name="distance" type="xs:string"></xs:attribute>
+            <xs:attribute name="temps" type="xs:time"></xs:attribute>
+            <xs:attribute name="latitude" type="xs:float"></xs:attribute>
+            <xs:attribute name="longitude" type="xs:float"></xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="lieu" type="xs:string"/>
+    <xs:element name="texte" type="xs:string"/>
+    
+    <xs:element name="fiche_technique">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element ref="information"/>
+                <xs:element ref="recommandations"/>
+                <xs:element ref="difficulte"/>
+                <xs:element ref="epoque_conseillee"/>
+                <xs:element ref="denivele_total"/>
+                <xs:element ref="longueur_totale"/>
+                <xs:element ref="altitude_depart"/>
+                <xs:element ref="altitude_arrivee"/>
+                <xs:element ref="altitude_maxi"/>
+                <xs:element ref="duree_totale"/>
+                <xs:element ref="depart"/>
+                <xs:element ref="arrivee"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="information" type="xs:string"/>
+    <xs:element name="recommandations" type="xs:string"/>
+    <xs:element name="difficulte" type="xs:string"/>
+    
+    <xs:element name="epoque_conseillee">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="epoque"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="denivele_total" type="xs:string"/>
+    <xs:element name="longueur_totale" type="xs:string"/>
+    <xs:element name="altitude_depart" type="xs:string"/>
+    <xs:element name="altitude_arrivee" type="xs:string"/>
+    <xs:element name="altitude_maxi" type="xs:string"/>
+    <xs:element name="duree_totale" type="xs:string"/>
+    
+    <xs:element name="epoque">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="PRINTEMPS"/>
+                <xs:enumeration value="ETE"/>
+                <xs:enumeration value="AUTOMNE"/>
+                <xs:enumeration value="HIVER"/>
+                <xs:enumeration value="TOUTES SAISONS"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    
+    <xs:element name="depart">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element ref="lieu"/>
+                <xs:element ref="commune"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	
+	<xs:element name="arrivee">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element ref="lieu"/>
+                <xs:element ref="commune"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="commune" type="xs:string"/>
+    
+    <xs:element name="fiche_information">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element ref="cartes_necessaire"/>
+                <xs:element ref="carroyage"/>
+                <xs:element ref="nom"/>
+                <xs:element ref="acces"/>
+                <xs:element ref="parking"/>
+                <xs:element ref="type"/>
+                <xs:element ref="materiel"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="cartes_necessaire">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="carte"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="carte" type="xs:string"/>
+    
+    <xs:element name="carroyage" type="xs:string"/>
+    <xs:element name="nom" type="xs:string"/>
+    <xs:element name="acces" type="xs:string"/>
+    <xs:element name="parking" type="xs:string"/>
+    
+    <xs:element name="type">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+                <xs:element ref="parcours"/>
+                <xs:element ref="chemins"/>
+                <xs:element ref="terrains"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="parcours">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="TRAVERSEE|BOUCLE"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element> 
+    
+    <xs:element name="chemins">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="chemin"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="chemin" type="xs:string"/>
+    
+    <xs:element name="terrains">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="terrain"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+        
+    <xs:element name="terrain" type="xs:string"/>
+    
+    <xs:element name="materiel" type="xs:string"/>
+    
+    <xs:element name="images">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="image"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="image">
+        <xs:complexType>
+            <xs:attribute name="numero" type="xs:integer"/>
+            <xs:attribute name="fichier" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+    
+</xs:schema>
