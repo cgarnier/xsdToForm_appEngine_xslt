@@ -25,11 +25,19 @@ class MainPage(webapp2.RequestHandler):
         self.basicElements = dict()
         self.output = ''
         ET.register_namespace("", "http://www.w3.org/2001/XMLSchema")
-        tree = ET.parse('SchemaXML.xsd')
+        tree = ET.parse('res/SchemaXML.xsd')
         self.root = tree.getroot()
         self.findBasics()
         self.output += self.parcours(self.root[0])
-        self.response.write(TEMPLATE % (self.output))
+
+
+        template_values = {
+            'content': self.output,
+
+        }
+
+        template = JINJA_ENVIRONMENT.get_template('templates/layout1.html')
+        self.response.write(template.render(template_values))
 
 
     def parcours(self, node):
@@ -41,9 +49,9 @@ class MainPage(webapp2.RequestHandler):
 
 
         if node.tag == '{http://www.w3.org/2001/XMLSchema}attribute' and 'type' in node.attrib:
-            txt += "@%s <input type=\"text\" value=\"%s\" /><br/>" % (node.attrib['name'], node.attrib['type'])
+            txt += "<p><label>%s</label> <input type=\"text\" value=\"%s\" /></p>" % (node.attrib['name'], node.attrib['type'])
         if node.tag == '{http://www.w3.org/2001/XMLSchema}element' and 'type' in node.attrib:
-            txt += "%s <input type=\"text\" value=\"%s\" /><br/>" % (node.attrib['name'], node.attrib['type'])
+            txt += "<p><label>%s</label> <input type=\"text\" value=\"%s\" /></p>" % (node.attrib['name'], node.attrib['type'])
 
         if node.tag == '{http://www.w3.org/2001/XMLSchema}restriction':
             txt += "<select>"

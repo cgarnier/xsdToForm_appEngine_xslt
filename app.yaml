@@ -9,8 +9,8 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: /res
-  static_dir: res
+- url: /static
+  static_dir: static
 
 - url: .*
   script: main.app
