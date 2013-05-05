@@ -1,0 +1,46 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <base href="/"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/formtoxml.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body >
+    <div id="cont" >
+        <div id="header">
+            <h1>XSD to Form</h1>
+        </div>
+        <div id="menu">
+            <ul id="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="xsdtoform">Xsd to form</a></li>
+                <!--<li><a href="formtoxsd">Form to xsd</a></li>-->
+                <li><a href="xmltohtml">Xml to html</a></li>
+
+            </ul>
+
+
+        </div>
+        <div id="content" >
+            {% for aCont in content%}
+                <div class="acont">{{ aCont }}</div>
+            {% endfor %}
+
+
+
+        </div>
+        <div id="footer">
+              <ul id="footLinks">
+                <li><a href="mailto:cle.garnier@gmail.com">Clément</a></li>
+                <li><a href="mailto:geoffrey.espagne@gmail.com">Geoffrey</a></li>
+                <li><a href="https://github.com/cgarnier/xsdToForm_appEngine_xslt">GitHub</a></li>
+
+
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

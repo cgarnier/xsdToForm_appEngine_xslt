@@ -81,7 +81,7 @@
             <p>
                 <xsl:element name="label">
                         <xsl:attribute name="for">
-                        <xsl:value-of select="$path"/>
+                        
                         <xsl:value-of select="@name"/>
                     </xsl:attribute>
                     <xsl:value-of select="@name"/>
@@ -91,9 +91,10 @@
                     <xsl:attribute name="rows">1</xsl:attribute>
                     <xsl:attribute name="cols">30</xsl:attribute>
                     <xsl:attribute name="name">
-                        <xsl:value-of select="$path"/>
+                       
                         <xsl:value-of select="@name"/>
                     </xsl:attribute>
+                    <xsl:value-of select="@type"/>
                 </xsl:element>
 
             </p>

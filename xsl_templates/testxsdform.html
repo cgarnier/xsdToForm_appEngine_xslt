@@ -1,43 +1,4 @@
-<html xmlns:xs="http://www.w3.org/2001/XMLSchema">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-   </head>
-   <body>
-      <form>
-         <fieldset>
-            <legend>shiporder</legend>
-            <h3>Attributs:</h3>
-            
-            
-            ++ orderid
-            
-            --- orderperson<label>orderperson</label><textarea rows="1" cols="30" name="/shiporder/"></textarea><br><fieldset>
-               <legend>shipto</legend>
-               
-               --- name<label>name</label><textarea rows="1" cols="30" name="/shiporder/shipto/"></textarea><br>
-               
-               --- address<label>address</label><textarea rows="1" cols="30" name="/shiporder/shipto/"></textarea><br>
-               
-               --- city<label>city</label><textarea rows="1" cols="30" name="/shiporder/shipto/"></textarea><br>
-               
-               --- country<label>country</label><textarea rows="1" cols="30" name="/shiporder/shipto/"></textarea><br></fieldset>
-            
-            --- shipto
-            <fieldset>
-               <legend>item</legend>
-               
-               --- title<label>title</label><textarea rows="1" cols="30" name="/shiporder/item/"></textarea><br>
-               
-               --- note<label>note</label><textarea rows="1" cols="30" name="/shiporder/item/"></textarea><br>
-               
-               --- quantity<label>quantity</label><textarea rows="1" cols="30" name="/shiporder/item/"></textarea><br>
-               
-               --- price<label>price</label><textarea rows="1" cols="30" name="/shiporder/item/"></textarea><br></fieldset>
-            
-            --- item
-         </fieldset>
-         
-         --- shiporder
-      </form>
-   </body>
-</html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:xs="http://www.w3.org/2001/XMLSchema"><head/><body><form><fieldset><legend>shiporder</legend><h3>Attributs:</h3><div class="attributes"><p><label for="@orderid">@orderid</label><input type="text" name="@orderid">xs:string</input></p></div><p><label for="orderperson">orderperson</label><textarea rows="1" cols="30" name="orderperson">xs:string</textarea></p><fieldset><legend>shipto</legend><div class="attributes"/><p><label for="name">name</label><textarea rows="1" cols="30" name="name">xs:string</textarea></p><p><label for="address">address</label><textarea rows="1" cols="30" name="address">xs:string</textarea></p><p><label for="city">city</label><textarea rows="1" cols="30" name="city">xs:string</textarea></p><p><label for="country">country</label><textarea rows="1" cols="30" name="country">xs:string</textarea></p></fieldset><fieldset><legend>item</legend><div class="attributes"/><p><label for="title">title</label><textarea rows="1" cols="30" name="title">xs:string</textarea></p><p><label for="note">note</label><textarea rows="1" cols="30" name="note">xs:string</textarea></p><p><label for="quantity">quantity</label><textarea rows="1" cols="30" name="quantity">xs:positiveInteger</textarea></p><p><label for="price">price</label><textarea rows="1" cols="30" name="price">xs:decimal</textarea></p></fieldset></fieldset></form></body></html>

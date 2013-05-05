@@ -10,25 +10,28 @@
         </xsl:apply-templates>
         
         <xsl:if test="xs:enumeration">
+            <p>
             <xsl:element name="label">
-                <xsl:attribute name="for"><xsl:value-of select="$path"></xsl:value-of></xsl:attribute>
+                <xsl:attribute name="for"><xsl:value-of select="../../@name"></xsl:value-of></xsl:attribute>
                 <xsl:value-of select="../../@name"></xsl:value-of>
             </xsl:element>
             <xsl:element name="select">
-                <xsl:attribute name="name"><xsl:value-of select="$path"/></xsl:attribute>
+                <xsl:attribute name="name"><xsl:value-of select="../../@name"></xsl:value-of></xsl:attribute>
                 
                 <xsl:apply-templates select="xs:enumeration">
                     <xsl:with-param name="path"><xsl:value-of select="$path"/></xsl:with-param>
                 </xsl:apply-templates>
             </xsl:element>
+            </p>
         </xsl:if>
+
     </xsl:template>
     
     <xsl:template match="xs:enumeration">
         <xsl:param name="path"></xsl:param>
         <xsl:element name="option">
             <xsl:attribute name="value">
-                <xsl:value-of select="position()"/>
+                <xsl:value-of select="@value"/>
                 
             </xsl:attribute>
             <xsl:value-of select="@value"/>

@@ -23,11 +23,11 @@
             </xsl:call-template>
         </xsl:if>
         <xsl:if test="@name">
-            <p>
+            <p class="attribute">
                 <xsl:element name="label">
                     <xsl:attribute name="for">
-                        <xsl:value-of select="$path"/>
-                        <xsl:text>@</xsl:text>
+                        
+
                         <xsl:value-of select="@name"/>
                     </xsl:attribute>
                     <xsl:text>@</xsl:text>
@@ -36,8 +36,8 @@
                 <xsl:element name="input">
                     <xsl:attribute name="type">text</xsl:attribute>
                     <xsl:attribute name="name">
-                        <xsl:value-of select="$path"/>
-                        <xsl:text>@</xsl:text>
+                        
+
                         <xsl:value-of select="@name"></xsl:value-of>
                     </xsl:attribute>
                 </xsl:element>
@@ -61,7 +61,7 @@
 
             <xsl:if test="@type">
 
-                <xsl:call-template name="printBasicElement">
+                <xsl:call-template name="printBasicAttribute">
                     <xsl:with-param name="path">
                         <xsl:value-of select="$path"/>
                     </xsl:with-param>
@@ -69,6 +69,33 @@
             </xsl:if>
         </xsl:if>
     </xsl:template>
+    <xsl:template name="printBasicAttribute">
+        <xsl:param name="path"></xsl:param>
+        <xsl:if test="@name">
+            <p class="attribute">
+                <xsl:element name="label">
+                    <xsl:attribute name="for">
 
+                        <xsl:value-of select="@name"/>
+                    </xsl:attribute>
+                    <xsl:text>@</xsl:text>
+                    <xsl:value-of select="@name"/>
+                </xsl:element>
+                
+                <xsl:element name="input">
+                    <xsl:attribute name="type">text</xsl:attribute>
+                    
+                    <xsl:attribute name="name">
+
+                        <xsl:value-of select="@name"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="value"><xsl:value-of select="@type"/></xsl:attribute>
+                    
+                </xsl:element>
+                
+            </p>
+        </xsl:if>
+        
+    </xsl:template>
 
 </xsl:stylesheet>

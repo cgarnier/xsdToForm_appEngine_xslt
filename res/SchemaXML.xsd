@@ -31,7 +31,7 @@
     
     <xs:element name="description"> <!-- useless ? -->
         <xs:complexType>
-            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:sequence minOccurs="1" maxOccurs="1">
                 <xs:element ref="etapes"/>
             </xs:sequence>
         </xs:complexType>
